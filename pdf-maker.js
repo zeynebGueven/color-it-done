@@ -1,6 +1,6 @@
 // import { jsPDF } from "jspdf";
 const { jsPDF } = window.jspdf;
-const doc = new jsPDF({
+let doc = new jsPDF({
     orientation: 'landscape',
 });
 const button_download_pdf = document.getElementById("download-pdf");
@@ -84,9 +84,13 @@ function generatePDF() {
 
 function downloadPDF() {
     // alert('Button wurde geklickt!');
+    doc = new jsPDF({
+        orientation: 'landscape',
+    });
     generatePDF();
     // resetValues();
-    doc.save("coloritdone.pdf"); 
+    doc.save("coloritdone.pdf");
+
 }
 
 button_download_pdf.addEventListener("click", downloadPDF);
